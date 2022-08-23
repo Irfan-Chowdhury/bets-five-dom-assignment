@@ -102,3 +102,4 @@ document.getElementById('calculateTotal').addEventListener('click',function () {
 
     document.getElementById('totalAmount').innerText = totalAmount;
 });
+
