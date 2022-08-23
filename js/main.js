@@ -65,15 +65,28 @@ document.getElementById('playerSlect-6').addEventListener('click',function () {
 
 
 // Calculate
+let playerExpense;
 document.getElementById('calculate').addEventListener('click',function () {
     if (player.length==0) {
         alert('Please select at least one player');
     }
     const perPlayerCost  = document.getElementById('perPlayerCost').value;
     const totalPlayer    = player.length;
-    const playerExpense  = perPlayerCost * totalPlayer;
+    playerExpense        = perPlayerCost * totalPlayer;
 
     document.getElementById('playerExpense').innerText = playerExpense;
-    
-    // alert(playerExpense);
+});
+
+
+// Calculate Total
+document.getElementById('calculateTotal').addEventListener('click',function () {
+    if (player.length==0) {
+        alert('Please select at least one player');
+    }
+
+    const managerCost  = document.getElementById('managerCost').value;
+    const coachCost    = document.getElementById('coachCost').value;
+    totalAmount        = parseInt(playerExpense) + parseInt(managerCost)  + parseInt(coachCost);
+
+    document.getElementById('totalAmount').innerText = totalAmount;
 });
