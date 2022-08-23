@@ -61,3 +61,19 @@ document.getElementById('playerSlect-6').addEventListener('click',function () {
     const playerName  = document.getElementById('playerName-6').innerText;
     addPlayer('playerSlect-6',playerName)
 });
+
+
+
+// Calculate
+document.getElementById('calculate').addEventListener('click',function () {
+    if (player.length==0) {
+        alert('Please select at least one player');
+    }
+    const perPlayerCost  = document.getElementById('perPlayerCost').value;
+    const totalPlayer    = player.length;
+    const playerExpense  = perPlayerCost * totalPlayer;
+
+    document.getElementById('playerExpense').innerText = playerExpense;
+    
+    // alert(playerExpense);
+});
