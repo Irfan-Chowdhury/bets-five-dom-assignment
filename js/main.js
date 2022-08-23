@@ -69,12 +69,16 @@ let playerExpense;
 document.getElementById('calculate').addEventListener('click',function () {
     if (player.length==0) {
         alert('Please select at least one player');
+        return
     }
     const perPlayerCost  = document.getElementById('perPlayerCost').value;
+    if (!perPlayerCost) {
+        alert('Please provide a valid number');
+    }
     const totalPlayer    = player.length;
     playerExpense        = perPlayerCost * totalPlayer;
 
-    document.getElementById('playerExpense').innerText = playerExpense;
+    document.getElementById('playerExpense').innerText = Math.abs(playerExpense);
 });
 
 
@@ -83,10 +87,19 @@ document.getElementById('calculateTotal').addEventListener('click',function () {
     if (player.length==0) {
         alert('Please select at least one player');
     }
+    
 
     const managerCost  = document.getElementById('managerCost').value;
     const coachCost    = document.getElementById('coachCost').value;
-    totalAmount        = parseInt(playerExpense) + parseInt(managerCost)  + parseInt(coachCost);
+    if (!managerCost || !coachCost) {
+        alert('Please provide a valid number');
+        return
+    }
+    totalAmount        = Math.abs(parseFloat(playerExpense)) + Math.abs(parseFloat(managerCost))  + Math.abs(parseFloat(coachCost));
 
     document.getElementById('totalAmount').innerText = totalAmount;
+
+    // Vanish input field 
+    // document.getElementById('managerCost').value = '';
+    // document.getElementById('coachCost').value = '';
 });
