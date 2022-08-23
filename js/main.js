@@ -1,4 +1,4 @@
-function myFunction(playerName, playerNo) {
+function addToList(playerName, playerNo) {
     const node = document.createElement("p"); // Create an "p" node:
     const textnode = document.createTextNode(playerNo+'. '+playerName); // Create a text node:
     node.appendChild(textnode); // Append the text node to the "li" node:
@@ -14,22 +14,25 @@ function disabledAndBackgroundColorById(playerId){
 function addPlayer(playerId,playerName){
     player.push(playerName);
     if (player.length > 5 ) {
+        alert('You can not select more than 5')
         return;
     }
 
     disabledAndBackgroundColorById(playerId);
-    myFunction(playerName, player.length);
+    addToList(playerName, player.length);
 }
 
-// Player 1
-const player = [];
 
+
+
+const player = [];
+// Player 1
 document.getElementById('playerSlect-1').addEventListener('click',function () {
     const playerName  = document.getElementById('playerName-1').innerText;
     addPlayer('playerSlect-1',playerName)
     // disabledAndBackgroundColorById('playerSlect-1');
     // player.push(playerName);
-    // myFunction(playerName, player.length);
+    // addToList(playerName, player.length);
 });
 
 // Player 2
@@ -98,8 +101,4 @@ document.getElementById('calculateTotal').addEventListener('click',function () {
     totalAmount        = Math.abs(parseFloat(playerExpense)) + Math.abs(parseFloat(managerCost))  + Math.abs(parseFloat(coachCost));
 
     document.getElementById('totalAmount').innerText = totalAmount;
-
-    // Vanish input field 
-    // document.getElementById('managerCost').value = '';
-    // document.getElementById('coachCost').value = '';
 });
